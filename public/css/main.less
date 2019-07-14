@@ -1,0 +1,54 @@
+@import (css) url('https://fonts.googleapis.com/css?family=El+Messiri:400,500,600,700&display=swap&subset=arabic');
+
+@color-clouds: #ecf0f1;
+@font-elmessiri: 'El Messiri', sans-serif;
+html {
+
+}
+
+.sp-wrapper {
+  font-family: @font-elmessiri;
+  width: 50%;
+  margin: 50px auto;
+  @media screen and (max-width: 797px) {
+    width: 100%;
+  }
+  > h1 {
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 20px;
+  }
+
+}
+.sec-wrapper{
+  font-family: @font-elmessiri;
+  width: 80%;
+  padding: 20px;
+  margin: 50px auto;
+  border: 1px solid @color-clouds;
+  @media screen and (max-width: 797px) {
+    width: 100%;
+  }
+  > h1 {
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 20px;
+  }
+  & .tab-content{
+    margin-top: 20px;
+  }
+}
+
+.login-form-wrapper {
+  width: 40%;
+  margin: 80px auto;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: @color-clouds;
+}
+
+#map-canvas {
+  margin-top: 20px;
+  width: 100%;
+  height: 400px;
+}

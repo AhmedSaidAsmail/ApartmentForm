@@ -9,10 +9,10 @@
 <body>
 <div class="container">
     <div class="sp-wrapper">
-        <h1>لوحة تحكم الموظفين</h1>
-        <a href="{{route('apartment..create')}}" class="btn btn-primary btn-block">اضافة مبني</a>
-        <a href="{{route('apartment..index')}}" class="btn btn-warning btn-block">لائحة المباني</a>
-        <a href="{{route('customer.logout')}}" class="btn btn-danger btn-block">تسجيل الخروج</a>
+        <h1>لوحة تحكم الادمن</h1>
+        <a href="{{route('customer.register')}}" class="btn btn-primary btn-block">اضافة مدخل بيانات</a>
+        <a href="" class="btn btn-warning btn-block">اضافة  مدقق</a>
+        <a href="{{route('admin.logout')}}" class="btn btn-danger btn-block">تسجيل الخروج</a>
     </div>
 </div>
 </body>

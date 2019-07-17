@@ -9,9 +9,8 @@
 <body>
 <div class="container">
     <div class="sec-wrapper">
-        <h1>استمارة تقييم الوحدات المفروشة</h1>
-        <form method="post" action="{{route('apartment..store')}}">
-            {{csrf_field()}}
+        <h1>{{$apartment->building_no}} تقييم الوحدة رقم </h1>
+
             <div class="form-wrapper">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
@@ -39,13 +38,13 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label>اسم الوحدات المفروشة</label>
-                                    <input class="form-control" name="basic[name]" required>
+                                    <input class="form-control" name="basic[name]" value="{{$apartment->name}}" disabled>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label>اسم المالك</label>
-                                    <input class="form-control" name="basic[owner]" required>
+                                    <input class="form-control" name="basic[owner]" value="{{$apartment->owner}}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -53,13 +52,13 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label>رقم الهاتف</label>
-                                    <input class="form-control" name="basic[phone]" required>
+                                    <input class="form-control" name="basic[phone]" value="{{$apartment->phone}}" disabled>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label>اسم الحي</label>
-                                    <input class="form-control" name="basic[neighborhood]" required>
+                                    <input class="form-control" name="basic[neighborhood]" value="{{$apartment->neighborhood}}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -67,13 +66,13 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label>اسم الشارع</label>
-                                    <input class="form-control" name="basic[street]" required>
+                                    <input class="form-control" name="basic[street]" value="{{$apartment->street}}" disabled>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label>رقم العقار</label>
-                                    <input class="form-control" name="basic[building_no]" required>
+                                    <input class="form-control" name="basic[building_no]" value="{{$apartment->building_no}}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -81,13 +80,13 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label>مساحة الارض</label>
-                                    <input class="form-control" name="basic[area]" required>
+                                    <input class="form-control" name="basic[area]" value="{{$apartment->area}}" disabled>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label>التصنيف حسب ترخيص هيئة السياحة</label>
-                                    <input class="form-control" name="basic[sort]" required>
+                                    <input class="form-control" name="basic[sort]" value="{{$apartment->sort}}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -97,13 +96,13 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label>عدد الادوار</label>
-                                    <input class="form-control" name="basic[floors_no]" required>
+                                    <input class="form-control" name="basic[floors_no]" value="{{$apartment->floors_no}}" disabled>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label>عدد الغرف</label>
-                                    <input class="form-control" name="basic[rooms_no]" required>
+                                    <input class="form-control" name="basic[rooms_no]" value="{{$apartment->rooms_no}}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -111,17 +110,13 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label>عدد المواقف الخارجية و القبو</label>
-                                    <input class="form-control" name="basic[parking_no]" required>
+                                    <input class="form-control" name="basic[parking_no]" value="{{$apartment->parking_no}}" disabled>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label>مساحة البهو الرئيسي</label>
-                                    <select class="form-control" name="basic[lobby_area]" required>
-                                        <option value="صغيرة">صغيرة</option>
-                                        <option value="متوسطة">متوسطة</option>
-                                        <option value="كبيرة">كبيرة</option>
-                                    </select>
+                                    <input class="form-control" name="basic[lobby_area]" value="{{$apartment->lobby_area}}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -129,20 +124,13 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label>نوع التكييف</label>
-                                    <select class="form-control" name="basic[air_conditioning_type]" required>
-                                        <option value="مركزي">مركزي</option>
-                                        <option value="جداري">جداري</option>
-                                        <option value="شباك">شباك</option>
-                                    </select>
+                                    <input class="form-control" name="basic[air_conditioning_type]" value="{{$apartment->air_conditioning_type}}" disabled>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label>نظام مكافحة الحريق</label>
-                                    <select class="form-control" name="basic[fire_system]" required>
-                                        <option value="1">متوفر</option>
-                                        <option value="0">غير متوفر</option>
-                                    </select>
+                                    <input class="form-control" name="basic[fire_system]" value="{{$apartment->fire_system}}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -150,28 +138,13 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label>خدمات داخلية</label>
-                                    <select class="form-control" name="basic[internal_services]" required>
-                                        <option value="مغسلة">مغسلة</option>
-                                        <option value="كافيه">كافيه</option>
-                                        <option value="مطعم">مطعم</option>
-                                        <option value="كافيتريا">كافيتريا</option>
-                                        <option value="نادي صحي">نادي صحي</option>
-                                        <option value="نادي رياضي">نادي رياضي</option>
-                                        <option value="دورة مياه عامة">دورة مياه عامة</option>
-                                        <option value="مصلي">مصلي</option>
-                                        <option value="قاعة">قاعة</option>
-                                        <option value="اخري">اخري</option>
-                                    </select>
+                                    <input class="form-control" name="basic[internal_services]" value="{{$apartment->internal_services}}" disabled>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label>خدمات خارجية</label>
-                                    <select class="form-control" name="basic[external_services]" required>
-                                        <option value="حديقة خارجية">حديقة خارجية</option>
-                                        <option value="حمامات سباحة">حمامات سباحة</option>
-                                        <option value="مدخل سيارات لتنزيل الافراد">مدخل سيارات لتنزيل الافراد</option>
-                                    </select>
+                                    <input class="form-control" name="basic[external_services]" value="{{$apartment->external_services}}" disabled>
                                 </div>
                             </div>
                         </div>
@@ -180,11 +153,9 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="search">الموقع</label>
-                                    <input class="form-control" id="search_map">
                                     <div id="map-canvas"></div>
-                                    <input name="location[longitude]"  id="lng">
-                                    <input name="location[latitude]"  id="lat">
+                                    <input type="hidden" value="{{$apartment->location->longitude}}" id="lng">
+                                    <input type="hidden" value="{{$apartment->location->latitude}}" id="lat">
                                 </div>
                             </div>
                         </div>
@@ -192,8 +163,6 @@
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
                 </div>
             </div>
-            <button class="btn btn-primary">انشئ وحدة جديدة</button>
-        </form>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -205,74 +174,19 @@
     var lngInput, latInput, city, map, marker, searchBox;
     lngInput = document.getElementById('lng');
     latInput = document.getElementById('lat');
-    city = new google.maps.LatLng(24.774265, 46.738586);
+    city = new google.maps.LatLng({{$apartment->location->latitude}}, {{$apartment->location->longitude}});
     map = new google.maps.Map(document.getElementById('map-canvas'), {
         center: city,
-        zoom: 5
+        zoom: 8
     });
+
     // marker
     marker = new google.maps.Marker({
         position: city,
         map: map,
-        draggable: true
+        draggable: false
     });
-    // search
-    lngInput.value = marker.getPosition().lng();
-    latInput.value = marker.getPosition().lat();
-    searchBox = new google.maps.places.SearchBox(document.getElementById('search_map'));
-    google.maps.event.addListener(searchBox, 'places_changed', function () {
-        let places = searchBox.getPlaces();
-        let boundes = new google.maps.LatLngBounds();
-        let i, place;
-        for (i = 0; place = places[i]; i++) {
-            console.log(place);
-            boundes.extend(place.geometry.location);
-            marker.setPosition(place.geometry.location);
-        }
-        map.fitBounds(boundes);
-        map.setZoom(15);
-    });
-    google.maps.event.addListener(marker, 'position_changed', function () {
-        let lng, lat;
-        lat = marker.getPosition().lat();
-        lng = marker.getPosition().lng();
-        lngInput.value = lng;
-        latInput.value = lat;
 
-    });
-    // get geoLocation
-
-    infoWindow = new google.maps.InfoWindow;
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            var pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-
-            infoWindow.setPosition(pos);
-            //infoWindow.setContent('Location found.');
-            //infoWindow.open(map);
-            map.setCenter(pos);
-            marker.setPosition(new google.maps.LatLng(pos.lat,pos.lng));
-            console.log(pos.lat + "  " + pos.lng);
-            lngInput.value = pos.lng;
-            latInput.value = pos.lat;
-        }, function () {
-            handleLocationError(true, infoWindow, map.getCenter());
-        });
-    } else {
-        // Browser doesn't support Geolocation
-        handleLocationError(false, infoWindow, map.getCenter());
-    }
-
-    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-            'Error: The Geolocation service failed.' :
-            'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-    }
 </script>
 </body>
 </html>

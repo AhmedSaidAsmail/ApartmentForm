@@ -12,9 +12,9 @@ class CustomerTableSeeder extends Seeder
     public function run()
     {
         $customer=new \App\Customer();
-        $customer->name="customer";
-        $customer->email="customer@customer.com";
-        $customer->password=bcrypt('customer');
+        $customer->name="employee";
+        $customer->email="employee@employee.com";
+        $customer->password=bcrypt('employee');
         $customer->save();
     }
 }

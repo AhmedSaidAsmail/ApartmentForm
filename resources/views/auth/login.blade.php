@@ -8,15 +8,17 @@
 </head>
 <body>
 <div class="container">
-    <form action="{{route('customer.login')}}" method="post">
+    <form action="{{route('admin.login')}}" method="post">
         {{csrf_field()}}
         <div class="login-form-wrapper">
+            <h2>تسجيل دخول الادمن</h2>
             <div class="form-group">
                 <input class="form-control" name="email" placeholder="Email Account">
             </div>
             <div class="form-group">
                 <input class="form-control" type="password" name="password" placeholder="Password">
             </div>
+            <input type="hidden" name="remember" value="1">
             <button class="btn btn-primary btn-block">تسجيل الدخول</button>
         </div>
     </form>

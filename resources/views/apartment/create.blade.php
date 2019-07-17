@@ -10,7 +10,7 @@
 <div class="container">
     <div class="sec-wrapper">
         <h1>استمارة تقييم الوحدات المفروشة</h1>
-        <form method="post" action="{{route('apartment..store')}}">
+        <form method="post" action="{{route('apartment..store')}}" enctype="multipart/form-data">
             {{csrf_field()}}
             <div class="form-wrapper">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -183,13 +183,154 @@
                                     <label for="search">الموقع</label>
                                     <input class="form-control" id="search_map">
                                     <div id="map-canvas"></div>
-                                    <input name="location[longitude]"  id="lng">
-                                    <input name="location[latitude]"  id="lat">
+                                    <input name="location[longitude]" id="lng">
+                                    <input name="location[latitude]" id="lat">
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>الواجهة الرئيسية</label>
+                                    <input type="file" class="form-control" name="images[main_gate]">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>الواجهة الجانبية</label>
+                                    <input type="file" class="form-control" name="images[side_gates]">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>البهو الرئيسي</label>
+                                    <input type="file" class="form-control" name="images[main_lobby]">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>صالة الاستقبال</label>
+                                    <input type="file" class="form-control" name="images[reception]">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>الممرات بين الغرف  1</label>
+                                    <input type="file" class="form-control" name="images[room_corridors_1]">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>الممرات بين الغرف  2</label>
+                                    <input type="file" class="form-control" name="images[room_corridors_2]">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>المصاعد 1</label>
+                                    <input type="file" class="form-control" name="images[elevator_1]">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>المصاعد 2</label>
+                                    <input type="file" class="form-control" name="images[elevator_2]">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>صورة لكامل الغرفة</label>
+                                    <input type="file" class="form-control" name="images[whole_room]">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>صورة داخلية للغرفة</label>
+                                    <input type="file" class="form-control" name="images[room_insider]">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>دورة المياه بالوحدة السكنية 1</label>
+                                    <input type="file" class="form-control" name="images[bathroom_1]">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>دورة المياه بالوحدة السكنية 2</label>
+                                    <input type="file" class="form-control" name="images[bathroom_2]">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>المطبخ بالوحدة 1</label>
+                                    <input type="file" class="form-control" name="images[kitchen_1]">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>المطبخ بالوحدة 2</label>
+                                    <input type="file" class="form-control" name="images[kitchen_2]">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>صالة الجلوس 1</label>
+                                    <input type="file" class="form-control" name="images[reception_room_1]">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>صالة الجلوس 2</label>
+                                    <input type="file" class="form-control" name="images[reception_room_2]">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>نوع التكييف</label>
+                                    <input type="file" class="form-control" name="images[air_conditioning_type]">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>نظام مكافحة الحريق</label>
+                                    <input type="file" class="form-control" name="images[fire_system]">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>خدمات خارجية</label>
+                                    <input type="file" class="form-control" name="images[internal_services]">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>خدمات داخلية</label>
+                                    <input type="file" class="form-control" name="images[external_services]">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <button class="btn btn-primary">انشئ وحدة جديدة</button>
@@ -254,7 +395,7 @@
             //infoWindow.setContent('Location found.');
             //infoWindow.open(map);
             map.setCenter(pos);
-            marker.setPosition(new google.maps.LatLng(pos.lat,pos.lng));
+            marker.setPosition(new google.maps.LatLng(pos.lat, pos.lng));
             console.log(pos.lat + "  " + pos.lng);
             lngInput.value = pos.lng;
             latInput.value = pos.lat;

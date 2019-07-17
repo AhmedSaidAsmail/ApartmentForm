@@ -66,3 +66,35 @@
   text-align: center;
   margin-bottom: 20px;
 }
+.image-wrapper > label {
+  display: block;
+  font-weight: 700;
+  text-decoration: underline;
+}
+.image-wrapper a {
+  display: block;
+  position: relative;
+  width: 100px;
+  height: 50px;
+  overflow: hidden;
+  border: 1px solid #000000;
+}
+.image-wrapper a > img {
+  position: absolute;
+  width: 100%;
+  top: -9999px;
+  left: -9999px;
+  right: -9999px;
+  bottom: -9999px;
+  margin: auto;
+}
+.image-wrapper span {
+  font-weight: 700;
+  height: 50px;
+  width: 100px;
+  border: 1px solid #000000;
+  display: block;
+  text-align: center;
+  padding-top: 15px;
+  cursor: not-allowed;
+}

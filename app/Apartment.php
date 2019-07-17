@@ -30,4 +30,9 @@ class Apartment extends Model
     {
         return $this->hasOne(Location::class);
     }
+
+    public function images()
+    {
+        return $this->hasOne(Image::class);
+    }
 }

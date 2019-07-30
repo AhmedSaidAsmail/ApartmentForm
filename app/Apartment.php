@@ -11,7 +11,7 @@ class Apartment extends Model
         'name',
         'owner',
         'phone',
-        'neighborhood',
+        'neighborhood_id',
         'street',
         'building_no',
         'area',
@@ -34,5 +34,20 @@ class Apartment extends Model
     public function images()
     {
         return $this->hasOne(Image::class);
+    }
+
+    public function internals()
+    {
+        return $this->hasMany(InternalService::class);
+    }
+
+    public function externals()
+    {
+        return $this->hasMany(ExternalService::class);
+    }
+
+    public function neighborhood()
+    {
+        return $this->belongsTo(Neighborhood::class);
     }
 }

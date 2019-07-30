@@ -19,12 +19,12 @@
                        aria-selected="true">معلومات اساسية</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="information-tab" data-toggle="tab" href="#information" role="tab"
-                       aria-controls="information" aria-selected="false">معلومات عن المبني</a>
+                    <a class="nav-link" id="location-tab" data-toggle="tab" href="#location" role="tab"
+                       aria-controls="location" aria-selected="false">موقع المبنى</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="location-tab" data-toggle="tab" href="#location" role="tab"
-                       aria-controls="location" aria-selected="false">موقع المبني</a>
+                    <a class="nav-link" id="information-tab" data-toggle="tab" href="#information" role="tab"
+                       aria-controls="information" aria-selected="false">معلومات عن المبنى</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
@@ -59,7 +59,7 @@
                             <div class="form-group">
                                 <label>اسم الحي</label>
                                 <input class="form-control" name="basic[neighborhood]"
-                                       value="{{$apartment->neighborhood}}" disabled>
+                                       value="{{$apartment->neighborhood->name}}" disabled>
                             </div>
                         </div>
                     </div>
@@ -139,7 +139,7 @@
                             <div class="form-group">
                                 <label>نظام مكافحة الحريق</label>
                                 <input class="form-control" name="basic[fire_system]"
-                                       value="{{$apartment->fire_system}}" disabled>
+                                       value="{!! $apartment->fire_system?"متوفر":"غير متوفر" !!}" disabled>
                             </div>
                         </div>
                     </div>
@@ -147,15 +147,23 @@
                         <div class="col">
                             <div class="form-group">
                                 <label>خدمات داخلية</label>
-                                <input class="form-control" name="basic[internal_services]"
-                                       value="{{$apartment->internal_services}}" disabled>
+                                <select class="form-control" name="services[internal_services][][service]" multiple
+                                        disabled>
+                                    @foreach($apartment->internals as $internal)
+                                        <option value="{{$internal->service}}">{{$internal->service}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
                                 <label>خدمات خارجية</label>
-                                <input class="form-control" name="basic[external_services]"
-                                       value="{{$apartment->external_services}}" disabled>
+                                <select class="form-control" name="services[external_services][][service]" multiple
+                                        disabled>
+                                    @foreach($apartment->externals as $external)
+                                        <option value="{{$external->service}}">{{$external->service}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -189,8 +197,22 @@
                     <div class="row">
                         <div class="col">
                             <div class="image-wrapper">
+                                <label>البهو الرئيسي2</label>
+                                {!! showImage($apartment->images->main_lobby_2) !!}
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="image-wrapper">
                                 <label>البهو الرئيسي</label>
                                 {!! showImage($apartment->images->main_lobby) !!}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="image-wrapper">
+                                <label>ممر نزول العملاء</label>
+                                {!! showImage($apartment->images->downfall) !!}
                             </div>
                         </div>
                         <div class="col">
@@ -203,13 +225,13 @@
                     <div class="row">
                         <div class="col">
                             <div class="image-wrapper">
-                                <label>الممرات بين الغرف  1</label>
+                                <label>الممرات بين الغرف 1</label>
                                 {!! showImage($apartment->images->room_corridors_1) !!}
                             </div>
                         </div>
                         <div class="col">
                             <div class="image-wrapper">
-                                <label>الممرات بين الغرف  2</label>
+                                <label>الممرات بين الغرف 2</label>
                                 {!! showImage($apartment->images->room_corridors_2) !!}
                             </div>
                         </div>
@@ -217,14 +239,14 @@
                     <div class="row">
                         <div class="col">
                             <div class="image-wrapper">
-                                <label>المصاعد 1</label>
-                                {!! showImage($apartment->images->elevator_1) !!}
+                                <label>المصاعد </label>
+                                {!! showImage($apartment->images->elevator) !!}
                             </div>
                         </div>
                         <div class="col">
                             <div class="image-wrapper">
-                                <label>المصاعد 2</label>
-                                {!! showImage($apartment->images->elevator_2) !!}
+                                <label>دورة المياه بالوحدة السكنية </label>
+                                {!! showImage($apartment->images->bathroom) !!}
                             </div>
                         </div>
                     </div>
@@ -245,42 +267,14 @@
                     <div class="row">
                         <div class="col">
                             <div class="image-wrapper">
-                                <label>دورة المياه بالوحدة السكنية 1</label>
-                                {!! showImage($apartment->images->bathroom_1) !!}
+                                <label>صالة الجلوس</label>
+                                {!! showImage($apartment->images->reception_room) !!}
                             </div>
                         </div>
                         <div class="col">
                             <div class="image-wrapper">
-                                <label>دورة المياه بالوحدة السكنية 2</label>
-                                {!! showImage($apartment->images->bathroom_2) !!}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="image-wrapper">
-                                <label>المطبخ بالوحدة 1</label>
-                                {!! showImage($apartment->images->kitchen_1) !!}
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="image-wrapper">
-                                <label>المطبخ بالوحدة 2</label>
-                                {!! showImage($apartment->images->kitchen_2) !!}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="image-wrapper">
-                                <label>صالة الجلوس 1</label>
-                                {!! showImage($apartment->images->reception_room_1) !!}
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="image-wrapper">
-                                <label>صالة الجلوس 2</label>
-                                {!! showImage($apartment->images->reception_room_2) !!}
+                                <label>المطبخ</label>
+                                {!! showImage($apartment->images->kitchen) !!}
                             </div>
                         </div>
                     </div>
@@ -301,14 +295,42 @@
                     <div class="row">
                         <div class="col">
                             <div class="image-wrapper">
-                                <label>خدمات خارجية</label>
-                                {!! showImage($apartment->images->internal_services) !!}
+                                <label>لمطعم</label>
+                                {!! showImage($apartment->images->restaurant) !!}
                             </div>
                         </div>
                         <div class="col">
                             <div class="image-wrapper">
-                                <label>خدمات داخلية</label>
-                                {!! showImage($apartment->images->external_services) !!}
+                                <label>الكافيه</label>
+                                {!! showImage($apartment->images->cafe) !!}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="image-wrapper">
+                                <label>النادي الصحي</label>
+                                {!! showImage($apartment->images->healthy_club) !!}
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="image-wrapper">
+                                <label>المسبح</label>
+                                {!! showImage($apartment->images->bool) !!}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="image-wrapper">
+                                <label>الحديقة الخارجية</label>
+                                {!! showImage($apartment->images->out_garden) !!}
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="image-wrapper">
+                                <label>اخري</label>
+                                {!! showImage($apartment->images->other) !!}
                             </div>
                         </div>
                     </div>
@@ -329,7 +351,7 @@
     city = new google.maps.LatLng({{$apartment->location->latitude}}, {{$apartment->location->longitude}});
     map = new google.maps.Map(document.getElementById('map-canvas'), {
         center: city,
-        zoom: 8
+        zoom: 18
     });
 
     // marker

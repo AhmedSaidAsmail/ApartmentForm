@@ -16,21 +16,22 @@ class CreateApartmentsTable extends Migration
         Schema::create('apartments', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('owner');
-            $table->string('phone');
-            $table->string('neighborhood');
+            $table->string('owner')->nullable();
+            $table->string('phone')->nullable();
+            $table->integer('neighborhood_id')->unsigned();
+            $table->foreign('neighborhood_id')->references('id')->on('neighborhoods')->onDelete('cascade');
             $table->string('street');
-            $table->string('building_no');
-            $table->string('area');
-            $table->string('sort');
+            $table->string('building_no')->nullable();
+            $table->string('area')->nullable();
+            $table->string('sort')->nullable();
             $table->string('rooms_no');
             $table->string('floors_no');
             $table->string('parking_no');
-            $table->string('lobby_area');
-            $table->string('air_conditioning_type');
-            $table->boolean('fire_system');
-            $table->string('internal_services');
-            $table->string('external_services');
+            $table->string('lobby_area')->nullable();
+            $table->string('air_conditioning_type')->nullable();
+            $table->boolean('fire_system')->nullable();
+//            $table->string('internal_services')->nullable();
+//            $table->string('external_services')->nullable();
 
 
             $table->timestamps();

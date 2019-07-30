@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Neighborhood;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -24,6 +25,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        view()->composer('apartment.create', function ($view) {
+            $view->with('neighborhoods', Neighborhood::all());
+        });
     }
 }

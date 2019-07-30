@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class ApartmentsController extends Controller
 {
-    private $path="/images/";
+    private $path = "/images/";
+
     /**
      * Display a listing of the resource.
      *
@@ -37,22 +38,25 @@ class ApartmentsController extends Controller
     public function store(Request $request)
     {
         $attributes = $request->all();
-        $this->uploadingImages($attributes["images"]);
         $customer = auth()->guard('customer')->user();
-       // dd($attributes['images']);
+        //dd($attributes);
         try {
+            $this->uploadingImages($attributes["images"]);
             $apartment = $customer->apartments()->create($attributes['basic']);
             $apartment->location()->create($attributes['location']);
             $apartment->images()->create($attributes['images']);
+            $apartment->internals()->createMany($attributes['services']['internal_services']);
+            $apartment->externals()->createMany($attributes['services']['external_services']);
             return redirect()->route('employee.panel');
         } catch (\Exception $exception) {
-            return back()->with('failure', $exception->getMessage());
+            //return back()->with('failure', $exception->getMessage());
+            return $exception->getMessage();
         }
     }
 
     private function uploadingImages(array &$images)
     {
-        foreach ($images as $key=>$image) {
+        foreach ($images as $key => $image) {
             uploading($images[$key], $this->path, function ($image) {
                 $image->thumb(220, 'thumbs');
             });

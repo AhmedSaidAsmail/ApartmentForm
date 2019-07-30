@@ -11,7 +11,8 @@
     <div class="sp-wrapper">
         <h1>لوحة تحكم الادمن</h1>
         <a href="{{route('customer.register')}}" class="btn btn-primary btn-block">اضافة مدخل بيانات</a>
-        <a href="" class="btn btn-warning btn-block">اضافة  مدقق</a>
+        <a href="" class="btn btn-warning btn-block">اضافة مدقق</a>
+        <a href="{{route('neighborhoods.index')}}" class="btn btn-info btn-block">لائحة الاحياء</a>
         <a href="{{route('admin.logout')}}" class="btn btn-danger btn-block">تسجيل الخروج</a>
     </div>
 </div>
